@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Week6BlazerApp.Components;
 using Week6BlazerApp.Components.Account;
 using Week6BlazerApp.Data;
+using Week6BlazerApp.Services;
 
 namespace Week6BlazerApp
 {
@@ -39,6 +40,8 @@ namespace Week6BlazerApp
                 .AddDefaultTokenProviders();
 
             builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
+
+            builder.Services.AddScoped<ModuleService>();
 
             builder.Services.AddDbContextFactory<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
