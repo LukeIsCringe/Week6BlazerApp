@@ -42,7 +42,9 @@ namespace Week6BlazerApp
             builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
             builder.Services.AddScoped<ModuleService>();
+            builder.Services.AddScoped<ProgrammeService>();
 
+            builder.Services.AddHttpClient();
             builder.Services.AddDbContextFactory<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
             var app = builder.Build();
